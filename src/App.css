@@ -1,0 +1,48 @@
+
+#main {
+  position: relative;
+  z-index: 3;
+  outline: none;
+}
+
+.route-load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--c-cyan),
+    var(--c-purple),
+    var(--c-pink),
+    transparent
+  );
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+}
+
+.route-load.is-on {
+  opacity: 1;
+  animation: routeLoad 0.7s var(--ease) forwards;
+}
+
+@keyframes routeLoad {
+  0% {
+    transform: scaleX(0);
+    background-position: 100% 0;
+  }
+  55% {
+    transform: scaleX(0.72);
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: right;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,32 @@
+
+.text-reveal {
+  display: inline;
+}
+
+.tr-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.tr-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+}
+
+.tr-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.tr-space {
+  display: inline-block;
+  width: 0.28em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-char {
+    transform: none !important;
+  }
+}

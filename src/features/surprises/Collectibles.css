@@ -1,0 +1,45 @@
+
+.collectibles {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  pointer-events: none;
+}
+
+.collectible {
+  position: absolute;
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: -20px 0 0 -20px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px rgba(255, 92, 138, 0.6));
+  cursor: pointer;
+}
+
+.collectibles__hint {
+  position: absolute;
+  right: clamp(16px, 3vw, 34px);
+  top: calc(var(--nav-h) + 14px);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 860px) {
+  .collectibles__hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collectible { animation: none !important; }
+}

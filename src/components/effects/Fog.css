@@ -1,0 +1,48 @@
+
+.fog {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.fog__layer {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+}
+
+.fog__layer--1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, var(--c-purple), transparent 65%);
+  top: -10vw;
+  left: -10vw;
+  animation: fog-drift 26s var(--ease-in-out) infinite;
+}
+
+.fog__layer--2 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--c-cyan), transparent 65%);
+  bottom: -15vw;
+  right: -10vw;
+  animation: fog-drift 32s var(--ease-in-out) infinite reverse;
+}
+
+.fog__layer--3 {
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--c-pink), transparent 65%);
+  top: 30vw;
+  left: 40vw;
+  animation: fog-drift 38s var(--ease-in-out) infinite;
+}
+
+@keyframes fog-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vw, 4vw) scale(1.15); }
+}

@@ -1,0 +1,50 @@
+
+.touch-ripple {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.touch-ripple__layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.touch-ripple__item {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.5), rgba(155, 93, 229, 0.28) 60%, transparent 72%);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-expand 0.6s var(--ease) forwards;
+  will-change: transform, opacity;
+}
+
+.touch-ripple__content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touch-ripple__item {
+    animation: none;
+    display: none;
+  }
+}

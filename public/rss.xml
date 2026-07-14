@@ -1,0 +1,54 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KAZE 風 — Anime &amp; Motion Design Studio</title>
+    <link>https://kaze.studio</link>
+    <atom:link href="https://kaze.studio/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Selected works, case studies and studio notes from KAZE — a Tokyo-based anime and motion design studio.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2024 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Neon Drifter — Case Study</title>
+      <link>https://kaze.studio/work/neon-drifter</link>
+      <guid>https://kaze.studio/work/neon-drifter</guid>
+      <description>A 12-episode cyberpunk road saga rendered with hand-painted light leaks and generative cityscapes that breathe with the score.</description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Crimson Lotus — Case Study</title>
+      <link>https://kaze.studio/work/crimson-lotus</link>
+      <guid>https://kaze.studio/work/crimson-lotus</guid>
+      <description>A period fantasy feature told through ink-wash transitions and frame-by-frame combat choreography rooted in kabuki rhythm.</description>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Echoes of Tomorrow — Case Study</title>
+      <link>https://kaze.studio/work/echoes-of-tomorrow</link>
+      <guid>https://kaze.studio/work/echoes-of-tomorrow</guid>
+      <description>A 4-minute audioreactive piece syncing particle motion to a live-recorded synth score, built entirely in code.</description>
+      <pubDate>Sat, 01 Jan 2023 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Silent Horizon — Case Study</title>
+      <link>https://kaze.studio/work/silent-horizon</link>
+      <guid>https://kaze.studio/work/silent-horizon</guid>
+      <description>A wordless meditation on isolation, built from long holds, minimal palette, and tidal motion.</description>
+      <pubDate>Fri, 01 Jan 2022 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Paper Moons — Case Study</title>
+      <link>https://kaze.studio/work/paper-moons</link>
+      <guid>https://kaze.studio/work/paper-moons</guid>
+      <description>A tender coming-of-age story wrapped in cut-paper textures and stop-motion-inspired timing.</description>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Void Walker — Case Study</title>
+      <link>https://kaze.studio/work/void-walker</link>
+      <guid>https://kaze.studio/work/void-walker</guid>
+      <description>A real-time cinematic trailer blending anime silhouette acting with volumetric, rendered depth.</description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

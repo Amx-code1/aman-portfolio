@@ -1,0 +1,13 @@
+
+.drift {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.drift__layer {
+  position: absolute;
+  inset: -20% 0;
+  will-change: transform;
+  pointer-events: none;
+}

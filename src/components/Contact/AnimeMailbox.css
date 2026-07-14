@@ -1,0 +1,74 @@
+
+.mailbox {
+  position: relative;
+  z-index: 2;
+  width: clamp(160px, 22vw, 230px);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+.mailbox__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.mailbox__glow {
+  animation: mbGlow 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes mbGlow {
+  0%, 100% { opacity: 0.5; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+.mailbox__flag-cloth {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: mbFlag 2.6s ease-in-out infinite;
+}
+@keyframes mbFlag {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-13deg); }
+}
+.mailbox__rune--1 {
+  animation: mbRune 2s ease-in-out infinite;
+}
+@keyframes mbRune {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.mailbox__letter {
+  opacity: 0;
+  transform: translateY(0);
+  transform-box: fill-box;
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.mailbox--sent .mailbox__letter {
+  opacity: 1;
+  transform: translateY(-28px);
+}
+.mailbox__door {
+  transform-box: fill-box;
+  transform-origin: center top;
+  transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+}
+.mailbox--sent .mailbox__door {
+  transform: translateY(20px);
+  opacity: 0.22;
+}
+.mailbox--sending .mailbox__flag-cloth {
+  animation-duration: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mailbox__glow,
+  .mailbox__flag-cloth,
+  .mailbox__rune--1 {
+    animation: none !important;
+  }
+  .mailbox__letter {
+    transition: none;
+  }
+  .mailbox--sent .mailbox__letter {
+    opacity: 1;
+    transform: translateY(-22px);
+  }
+}

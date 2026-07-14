@@ -1,0 +1,22 @@
+
+.grad-border {
+  position: relative;
+  border-radius: var(--gb-radius, 18px);
+  padding: 1.5px;
+  background: var(--grad-primary);
+  isolation: isolate;
+}
+
+.grad-border__inner {
+  position: relative;
+  border-radius: calc(var(--gb-radius, 18px) - 1.5px);
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.grad-border__inner--glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+}

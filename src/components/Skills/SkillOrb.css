@@ -1,0 +1,377 @@
+
+.orb {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text);
+  z-index: 2;
+  cursor: pointer;
+  transition: z-index 0s;
+}
+
+.orb--core {
+  --size: clamp(104px, 12vw, 150px);
+}
+.orb--root {
+  --size: clamp(82px, 9.5vw, 116px);
+}
+.orb--leaf {
+  --size: clamp(62px, 7.5vw, 88px);
+}
+
+.orb:hover,
+.orb.is-active,
+.orb:focus-visible {
+  z-index: 10;
+}
+
+.orb__circle {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  transition: transform 0.5s var(--ease);
+}
+
+.orb:hover .orb__circle,
+.orb.is-active .orb__circle,
+.orb:focus-visible .orb__circle {
+  transform: scale(1.12);
+}
+
+.orb:focus-visible {
+  outline: none;
+}
+.orb:focus-visible .orb__circle {
+  box-shadow: 0 0 0 2px var(--c-cyan);
+  border-radius: 50%;
+}
+
+/* ===== Magic circle ===== */
+.orb__magic {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orb__ring,
+.orb__runes,
+.orb__poly {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.orb__ring--outer {
+  fill: none;
+  stroke: var(--orb-color);
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+  opacity: 0.5;
+  animation: orbSpin 18s linear infinite;
+}
+.orb__ring--inner {
+  fill: none;
+  stroke: var(--orb-color);
+  stroke-width: 1.2;
+  opacity: 0.65;
+  animation: orbSpin 26s linear infinite reverse;
+}
+.orb__runes rect {
+  fill: var(--orb-color);
+  opacity: 0.6;
+}
+.orb__runes {
+  animation: orbSpin 34s linear infinite;
+}
+.orb__poly {
+  fill: none;
+  stroke: var(--orb-color);
+  stroke-width: 1;
+  opacity: 0.45;
+  animation: orbSpin 30s linear infinite;
+}
+.orb__ring--progress {
+  fill: none;
+  stroke: var(--orb-color);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px var(--orb-color));
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 1.8s var(--ease);
+}
+
+.orb:hover .orb__ring--outer,
+.orb.is-active .orb__ring--outer {
+  animation-duration: 7s;
+}
+.orb:hover .orb__ring--inner,
+.orb.is-active .orb__ring--inner {
+  animation-duration: 11s;
+}
+
+@keyframes orbSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Energy core ===== */
+.orb__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54%;
+  height: 54%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.95), var(--orb-color) 58%, rgba(0, 0, 0, 0) 78%);
+  box-shadow: 0 0 16px var(--orb-color), inset 0 0 12px rgba(255, 255, 255, 0.55);
+  animation: orbPulse 3.6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes orbPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+.orb__symbol {
+  font-family: var(--font-jp);
+  font-weight: 700;
+  font-size: calc(var(--size) * 0.3);
+  color: #05050a;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  line-height: 1;
+}
+
+/* ===== Halo ===== */
+.orb__halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--orb-color), transparent 62%);
+  opacity: 0.16;
+  filter: blur(12px);
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.orb--core .orb__halo {
+  opacity: 0.3;
+}
+.orb:hover .orb__halo,
+.orb.is-active .orb__halo {
+  opacity: 0.42;
+}
+
+/* ===== Particles ===== */
+.orb__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.orb__particles i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: var(--orb-color);
+  box-shadow: 0 0 6px var(--orb-color);
+  opacity: 0;
+}
+.orb:hover .orb__particles i,
+.orb.is-active .orb__particles i {
+  opacity: 0.85;
+}
+.orb__particles i:nth-child(1) {
+  animation: orbOrbit 5s linear infinite;
+}
+.orb__particles i:nth-child(2) {
+  animation: orbOrbit 6.5s linear infinite reverse;
+}
+.orb__particles i:nth-child(3) {
+  animation: orbOrbit 7.5s linear infinite;
+}
+.orb__particles i:nth-child(4) {
+  animation: orbOrbit 5.8s linear infinite reverse;
+}
+.orb__particles i:nth-child(5) {
+  animation: orbOrbit 8.2s linear infinite;
+}
+
+@keyframes orbOrbit {
+  0% {
+    transform: rotate(0deg) translateX(calc(var(--size) * 0.62)) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(360deg) translateX(calc(var(--size) * 0.62)) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== Info tooltip ===== */
+.orb__info {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: max-content;
+  max-width: 210px;
+  text-align: center;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 12px 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  z-index: 12;
+}
+.orb:hover .orb__info,
+.orb.is-active .orb__info,
+.orb:focus-visible .orb__info {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.orb--tip-up .orb__info {
+  top: auto;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(-8px);
+}
+.orb--tip-up:hover .orb__info,
+.orb--tip-up.is-active .orb__info,
+.orb--tip-up:focus-visible .orb__info {
+  transform: translateX(-50%) translateY(0);
+}
+
+.orb--tip-left .orb__info {
+  left: 0;
+  transform: translateX(0) translateY(8px);
+}
+.orb--tip-left:hover .orb__info,
+.orb--tip-left.is-active .orb__info,
+.orb--tip-left:focus-visible .orb__info {
+  transform: translateX(0) translateY(0);
+}
+
+.orb--tip-right .orb__info {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(8px);
+}
+.orb--tip-right:hover .orb__info,
+.orb--tip-right.is-active .orb__info,
+.orb--tip-right:focus-visible .orb__info {
+  transform: translateX(0) translateY(0);
+}
+
+.orb__name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.orb__xp {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-heading);
+  color: var(--orb-color);
+  font-size: 1.1rem;
+}
+.orb__xp-val {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.orb__xp-pct {
+  font-weight: 700;
+}
+.orb__xp-tag {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  margin-left: 5px;
+  color: var(--text-faint);
+}
+.orb__desc {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 760px) {
+  .orb {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 280px;
+  }
+  .orb__circle {
+    margin: 0 auto;
+  }
+  .orb__info {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    max-width: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .orb__halo {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb__ring--outer,
+  .orb__ring--inner,
+  .orb__runes,
+  .orb__poly,
+  .orb__core,
+  .orb__particles i {
+    animation: none !important;
+  }
+  .orb__ring--progress {
+    transition: none;
+  }
+}

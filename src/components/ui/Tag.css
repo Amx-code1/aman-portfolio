@@ -1,0 +1,31 @@
+
+.ui-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.ui-tag--cyan {
+  color: var(--c-cyan);
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.ui-tag--pink {
+  color: var(--c-pink);
+  border-color: rgba(255, 92, 138, 0.4);
+}
+
+.ui-tag--purple {
+  color: var(--c-purple);
+  border-color: rgba(155, 93, 229, 0.4);
+}

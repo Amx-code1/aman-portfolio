@@ -1,0 +1,59 @@
+
+:root {
+  /* ===== Cyberpunk / Anime Palette ===== */
+  --c-black: #04040a;
+  --c-midnight: #080813;
+  --c-indigo: #141433;
+  --c-indigo-soft: #1c1c44;
+  --c-electric: #3b6bff;
+  --c-cyan: #00f0ff;
+  --c-purple: #9b5de5;
+  --c-pink: #ff5c8a;
+  --c-white: #f4f6ff;
+
+  /* ===== Semantic (legacy-compatible) ===== */
+  --bg: var(--c-midnight);
+  --bg-soft: #0e0e22;
+  --bg-deep: #04040a;
+  --surface: rgba(20, 20, 51, 0.40);
+  --surface-2: rgba(28, 28, 68, 0.55);
+  --text: var(--c-white);
+  --text-dim: #a1a3c4;
+  --text-faint: #5b5d80;
+  --line: rgba(255, 255, 255, 0.10);
+
+  --accent: var(--c-cyan);
+  --accent-2: var(--c-purple);
+  --accent-3: var(--c-pink);
+
+  /* ===== Glass & Effects ===== */
+  --glass-bg: rgba(20, 20, 51, 0.30);
+  --glass-bg-strong: rgba(8, 8, 19, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 18px;
+
+  --grad-primary: linear-gradient(135deg, var(--c-cyan), var(--c-purple) 48%, var(--c-pink));
+  --grad-electric: linear-gradient(135deg, var(--c-electric), var(--c-cyan));
+  --grad-aurora: linear-gradient(115deg, var(--c-purple), var(--c-pink), var(--c-cyan));
+
+  --glow-cyan: 0 0 30px rgba(0, 240, 255, 0.45);
+  --glow-pink: 0 0 30px rgba(255, 92, 138, 0.45);
+  --glow-purple: 0 0 32px rgba(155, 93, 229, 0.40);
+
+  /* ===== Typography ===== */
+  --font-display: 'Clash Display', 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Geist', 'Space Grotesk', system-ui, sans-serif;
+  --font-jp: 'Noto Sans JP', system-ui, sans-serif;
+
+  /* ===== Layout ===== */
+  --max-width: 1340px;
+  --gutter: clamp(20px, 5vw, 80px);
+  --nav-h: 78px;
+  --radius: 18px;
+  --radius-lg: 26px;
+
+  /* ===== Motion ===== */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}

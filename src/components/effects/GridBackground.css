@@ -1,0 +1,36 @@
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-bg__plane {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -12%;
+  height: 72%;
+  background-image:
+    linear-gradient(to right, rgba(0, 240, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(to top, rgba(155, 93, 229, 0.16) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(440px) rotateX(68deg);
+  transform-origin: bottom center;
+  animation: grid-move 16s linear infinite;
+  mask-image: linear-gradient(to top, #000 0%, transparent 82%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 82%);
+}
+
+@keyframes grid-move {
+  from { background-position: 0 0; }
+  to { background-position: 0 64px; }
+}
+
+.grid-bg__fade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, transparent 28%, var(--bg) 82%);
+}
